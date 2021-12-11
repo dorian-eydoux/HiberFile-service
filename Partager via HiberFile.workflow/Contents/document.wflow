@@ -157,7 +157,7 @@ end run</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>function run(input) {	return input	const [filePath, duration, shellOutput] = input.toString().split(';')	const upload = JSON.parse(shellOutput)	return `ETAG=$(curl -is -X PUT '${upload.uploadUrls[0]}' -d '@${filePath}' | grep -Fi ETag | awk 'BEGIN {ETag=": "}{print $2}'); echo "${upload.hiberfileId};${upload.uploadId};${duration};$ETAG"`}</string>
+					<string>function run(input) {	const [filePath, duration, shellOutput] = input.toString().split(';')	const upload = JSON.parse(shellOutput)	return `ETAG=$(curl -is -X PUT '${upload.uploadUrls[0]}' --data-binary '@${filePath}' | grep -Fi ETag | awk 'BEGIN {ETag=": "}{print $2}'); echo "${upload.hiberfileId};${upload.uploadId};${duration};$ETAG"`}</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunJavaScript</string>
@@ -746,47 +746,47 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>87B9E4A5-53FD-435E-AC35-A47B9A432ED6</key>
+		<key>28754936-9AC4-4400-BFBC-0E005DCC0FDA</key>
 		<dict>
 			<key>from</key>
-			<string>05C01A52-1734-41A7-BCBF-94ECD0CD4B73 - 05C01A52-1734-41A7-BCBF-94ECD0CD4B73</string>
+			<string>1720E931-C6A4-475C-9B3E-583048E298F8 - 1720E931-C6A4-475C-9B3E-583048E298F8</string>
 			<key>to</key>
-			<string>18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA - 18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA</string>
+			<string>05C01A52-1734-41A7-BCBF-94ECD0CD4B73 - 05C01A52-1734-41A7-BCBF-94ECD0CD4B73</string>
 		</dict>
-		<key>8BD813C3-47FD-477A-BE10-8300473BA63E</key>
+		<key>5278AA62-8363-4C2F-9FA2-1437CE335AF8</key>
+		<dict>
+			<key>from</key>
+			<string>5FB32DD8-40CE-49CC-B4EB-492C293FEFDB - 5FB32DD8-40CE-49CC-B4EB-492C293FEFDB</string>
+			<key>to</key>
+			<string>AA91734D-31EA-4282-B15D-7C7BAAFB293D - AA91734D-31EA-4282-B15D-7C7BAAFB293D</string>
+		</dict>
+		<key>7C8D6FEF-EEF8-4924-8E17-1DA42E73EF8E</key>
+		<dict>
+			<key>from</key>
+			<string>AA91734D-31EA-4282-B15D-7C7BAAFB293D - AA91734D-31EA-4282-B15D-7C7BAAFB293D</string>
+			<key>to</key>
+			<string>1720E931-C6A4-475C-9B3E-583048E298F8 - 1720E931-C6A4-475C-9B3E-583048E298F8</string>
+		</dict>
+		<key>C4E9C1E1-5C79-4DCE-87EB-98A4BD7FB969</key>
 		<dict>
 			<key>from</key>
 			<string>55F4B77F-AA87-458B-A457-8422E8688C06 - 55F4B77F-AA87-458B-A457-8422E8688C06</string>
 			<key>to</key>
 			<string>5FB32DD8-40CE-49CC-B4EB-492C293FEFDB - 5FB32DD8-40CE-49CC-B4EB-492C293FEFDB</string>
 		</dict>
-		<key>9D0A1C94-1A03-4B23-8BC0-99235672307B</key>
+		<key>D4629FCF-48B4-4D31-958E-D3345C55275F</key>
 		<dict>
 			<key>from</key>
-			<string>AA91734D-31EA-4282-B15D-7C7BAAFB293D - AA91734D-31EA-4282-B15D-7C7BAAFB293D</string>
+			<string>05C01A52-1734-41A7-BCBF-94ECD0CD4B73 - 05C01A52-1734-41A7-BCBF-94ECD0CD4B73</string>
 			<key>to</key>
-			<string>1720E931-C6A4-475C-9B3E-583048E298F8 - 1720E931-C6A4-475C-9B3E-583048E298F8</string>
+			<string>18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA - 18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA</string>
 		</dict>
-		<key>C4ECD996-6C3D-43B3-95A8-B87C0B01B7AB</key>
+		<key>F3CEDE01-4D01-4A37-80D1-00EF04A7D9CC</key>
 		<dict>
 			<key>from</key>
 			<string>18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA - 18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA</string>
 			<key>to</key>
 			<string>4351A075-B5C0-4455-B3BD-26E8D91B0CF9 - 4351A075-B5C0-4455-B3BD-26E8D91B0CF9</string>
-		</dict>
-		<key>C7344437-211F-4DFE-AFB0-95CCE5692DCA</key>
-		<dict>
-			<key>from</key>
-			<string>5FB32DD8-40CE-49CC-B4EB-492C293FEFDB - 5FB32DD8-40CE-49CC-B4EB-492C293FEFDB</string>
-			<key>to</key>
-			<string>AA91734D-31EA-4282-B15D-7C7BAAFB293D - AA91734D-31EA-4282-B15D-7C7BAAFB293D</string>
-		</dict>
-		<key>EF853E90-1AED-4631-B371-3899911CE96B</key>
-		<dict>
-			<key>from</key>
-			<string>1720E931-C6A4-475C-9B3E-583048E298F8 - 1720E931-C6A4-475C-9B3E-583048E298F8</string>
-			<key>to</key>
-			<string>05C01A52-1734-41A7-BCBF-94ECD0CD4B73 - 05C01A52-1734-41A7-BCBF-94ECD0CD4B73</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>
