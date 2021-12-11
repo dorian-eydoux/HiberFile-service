@@ -51,7 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input}	if length of input = 1 then		set textInput to input as text		if last character of textInput ≠ ":" then			set filePath to POSIX path of input			set fileName to name of (info for filePath)						choose from list {"1 heure", "1 jour", "3 jours", "7 jours", "30 jours", "Jamais"} with prompt "Temps d'expiration du fichier" without multiple selections allowed and empty selection allowed			set duration to the result						do shell script "curl -X POST https://api.hiberfile.com/files/create -H 'accept: application/json' -H 'Content-Type: application/json' -d '{\"chunksNumber\": 1, \"name\": \"" &amp; fileName &amp; "\"}'"						return filePath &amp; ";" &amp; duration &amp; ";" &amp; the result		else			display alert "Vous ne pouvez pas envoyer de dossiers" as critical			return "error"		end if	else		display alert "Vous pouvez envoyer uniquement un seul fichier à la fois" as critical		return "error"	end ifend run</string>
+					<string>on run {input}	if length of input = 1 then		set textInput to input as text		if last character of textInput ≠ ":" then			set filePath to POSIX path of input			set fileName to name of (info for filePath)						choose from list {"1 heure", "1 jour", "3 jours", "7 jours", "30 jours", "Jamais"} with prompt "Temps d'expiration du fichier" without multiple selections allowed and empty selection allowed			set duration to the result						do shell script "curl -X POST https://api.hiberfile.com/files/create -H 'accept: application/json' -H 'Content-Type: application/json' -d '{\"chunksNumber\": 1, \"name\": \"" &amp; fileName &amp; "\"}'"						return filePath &amp; ";" &amp; duration &amp; ";" &amp; the result		else			display alert "Vous ne pouvez pas envoyer de dossiers" as critical			error number -128		end if	else		display alert "Vous pouvez envoyer uniquement un seul fichier à la fois" as critical		error number -128	end ifend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -109,7 +109,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>588.500000:619.000000</string>
+				<string>588.500000:368.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -157,7 +157,7 @@ end run</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>function run(input) {	const [filePath, duration, shellOutput] = input.toString().split(';')	const upload = JSON.parse(shellOutput)	return `ETAG=$(curl -is -X PUT '${upload.uploadUrls[0]}' -d '@${filePath}' | grep -Fi ETag | awk 'BEGIN {ETag=": "}{print $2}'); echo "${upload.hiberfileId};${upload.uploadId};${duration};$ETAG"`}</string>
+					<string>function run(input) {	return input	const [filePath, duration, shellOutput] = input.toString().split(';')	const upload = JSON.parse(shellOutput)	return `ETAG=$(curl -is -X PUT '${upload.uploadUrls[0]}' -d '@${filePath}' | grep -Fi ETag | awk 'BEGIN {ETag=": "}{print $2}'); echo "${upload.hiberfileId};${upload.uploadId};${duration};$ETAG"`}</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunJavaScript</string>
@@ -212,7 +212,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>588.500000:852.000000</string>
+				<string>588.500000:613.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run JavaScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -314,7 +314,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>588.500000:1032.000000</string>
+				<string>588.500000:858.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -417,7 +417,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>588.500000:1392.000000</string>
+				<string>588.500000:1103.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run JavaScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -519,7 +519,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>588.500000:1572.000000</string>
+				<string>588.500000:1348.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -736,7 +736,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>588.500000:1826.000000</string>
+				<string>588.500000:1602.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Display Notification.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -746,42 +746,42 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>4D7AB94B-7BF3-4D53-832D-A33093A72753</key>
+		<key>87B9E4A5-53FD-435E-AC35-A47B9A432ED6</key>
 		<dict>
 			<key>from</key>
 			<string>05C01A52-1734-41A7-BCBF-94ECD0CD4B73 - 05C01A52-1734-41A7-BCBF-94ECD0CD4B73</string>
 			<key>to</key>
 			<string>18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA - 18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA</string>
 		</dict>
-		<key>5965E277-6874-4C3E-BD57-2C3848293632</key>
-		<dict>
-			<key>from</key>
-			<string>AA91734D-31EA-4282-B15D-7C7BAAFB293D - AA91734D-31EA-4282-B15D-7C7BAAFB293D</string>
-			<key>to</key>
-			<string>1720E931-C6A4-475C-9B3E-583048E298F8 - 1720E931-C6A4-475C-9B3E-583048E298F8</string>
-		</dict>
-		<key>B2CBF541-81E1-484D-916F-A7A76F5DC177</key>
+		<key>8BD813C3-47FD-477A-BE10-8300473BA63E</key>
 		<dict>
 			<key>from</key>
 			<string>55F4B77F-AA87-458B-A457-8422E8688C06 - 55F4B77F-AA87-458B-A457-8422E8688C06</string>
 			<key>to</key>
 			<string>5FB32DD8-40CE-49CC-B4EB-492C293FEFDB - 5FB32DD8-40CE-49CC-B4EB-492C293FEFDB</string>
 		</dict>
-		<key>CDE6B182-605F-44E0-8F2B-0BC5F0968F4D</key>
+		<key>9D0A1C94-1A03-4B23-8BC0-99235672307B</key>
+		<dict>
+			<key>from</key>
+			<string>AA91734D-31EA-4282-B15D-7C7BAAFB293D - AA91734D-31EA-4282-B15D-7C7BAAFB293D</string>
+			<key>to</key>
+			<string>1720E931-C6A4-475C-9B3E-583048E298F8 - 1720E931-C6A4-475C-9B3E-583048E298F8</string>
+		</dict>
+		<key>C4ECD996-6C3D-43B3-95A8-B87C0B01B7AB</key>
 		<dict>
 			<key>from</key>
 			<string>18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA - 18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA</string>
 			<key>to</key>
 			<string>4351A075-B5C0-4455-B3BD-26E8D91B0CF9 - 4351A075-B5C0-4455-B3BD-26E8D91B0CF9</string>
 		</dict>
-		<key>EE917E25-A7F4-4F19-8528-3BB7C21AE958</key>
+		<key>C7344437-211F-4DFE-AFB0-95CCE5692DCA</key>
 		<dict>
 			<key>from</key>
 			<string>5FB32DD8-40CE-49CC-B4EB-492C293FEFDB - 5FB32DD8-40CE-49CC-B4EB-492C293FEFDB</string>
 			<key>to</key>
 			<string>AA91734D-31EA-4282-B15D-7C7BAAFB293D - AA91734D-31EA-4282-B15D-7C7BAAFB293D</string>
 		</dict>
-		<key>F210C3B4-6D43-4F6D-AB35-681594CDFA0C</key>
+		<key>EF853E90-1AED-4631-B371-3899911CE96B</key>
 		<dict>
 			<key>from</key>
 			<string>1720E931-C6A4-475C-9B3E-583048E298F8 - 1720E931-C6A4-475C-9B3E-583048E298F8</string>
