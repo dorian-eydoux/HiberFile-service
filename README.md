@@ -1,4 +1,4 @@
-# HiberFile service for macOS
+# HiberFile service
 Service macOS permettant d'envoyer rapidement des fichiers via [HiberFile](https://hiberfile.com)
 
 ## Premières étapes
