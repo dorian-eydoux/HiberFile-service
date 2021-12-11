@@ -109,7 +109,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>588.500000:574.000000</string>
+				<string>588.500000:619.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -157,7 +157,7 @@ end run</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>function run(input) {	const [filePath, duration, shellOutput] = input.toString().split(';')	const upload = JSON.parse(shellOutput)	return `ETAG=$(curl -is -X PUT '${upload.uploadUrls[0]}' -d '${filePath}' | grep -Fi ETag | awk 'BEGIN {ETag=": "}{print $2}'); echo "${upload.hiberfileId};${upload.uploadId};${duration};$ETAG"`}</string>
+					<string>function run(input) {	const [filePath, duration, shellOutput] = input.toString().split(';')	const upload = JSON.parse(shellOutput)	return `ETAG=$(curl -is -X PUT '${upload.uploadUrls[0]}' -d '@${filePath}' | grep -Fi ETag | awk 'BEGIN {ETag=": "}{print $2}'); echo "${upload.hiberfileId};${upload.uploadId};${duration};$ETAG"`}</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunJavaScript</string>
@@ -212,7 +212,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>588.500000:807.000000</string>
+				<string>588.500000:852.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run JavaScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -311,12 +311,10 @@ end run</string>
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>588.500000:987.000000</string>
+				<string>588.500000:1032.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -364,9 +362,7 @@ end run</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>function run(input) {	const [hiberfileId, uploadId, duration, ETag] = input.toString().split(';')
-	const expire = {		'1 heure': 3600,		'1 jour': 86400,		'3 jours': 259200,		'7 jours': 604800,		'30 jours': 2592000,		'Jamais': 41404367167.272	}[duration]
-	const body = { uploadId, expire, parts:[{ ETag, PartNumber: 1 }] }	return `curl -f -X POST https://api.hiberfile.com/files/${hiberfileId}/finish -H 'Content-Type: application/json' -d '${JSON.stringify(body)}'; echo https://hiberfile.com/d/${hiberfileId}`}</string>
+					<string>function run(input) {	const [hiberfileId, uploadId, duration, ETag] = input.toString().split(';')	const expire = {		'1 heure': 3600,		'1 jour': 86400,		'3 jours': 259200,		'7 jours': 604800,		'30 jours': 2592000,		'Jamais': 41404367167.272	}[duration]	const body = { uploadId, expire, parts:[{ ETag, PartNumber: 1 }] }	return `curl -f -X POST https://api.hiberfile.com/files/${hiberfileId}/finish -H 'Content-Type: application/json' -d '${JSON.stringify(body)}'; echo https://hiberfile.com/d/${hiberfileId}`}</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunJavaScript</string>
@@ -418,12 +414,10 @@ end run</string>
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>588.500000:1332.000000</string>
+				<string>588.500000:1392.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run JavaScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -522,12 +516,10 @@ end run</string>
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>588.500000:1528.000000</string>
+				<string>588.500000:1572.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -603,8 +595,6 @@ end run</string>
 				</array>
 				<key>arguments</key>
 				<dict/>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
@@ -743,12 +733,10 @@ end run</string>
 						<string>2</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>588.500000:1782.000000</string>
+				<string>588.500000:1826.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Display Notification.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -758,47 +746,47 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>00E5ECC3-CE60-46A9-8F4C-9704F5AAAD2D</key>
+		<key>4D7AB94B-7BF3-4D53-832D-A33093A72753</key>
 		<dict>
 			<key>from</key>
-			<string>5FB32DD8-40CE-49CC-B4EB-492C293FEFDB - 5FB32DD8-40CE-49CC-B4EB-492C293FEFDB</string>
+			<string>05C01A52-1734-41A7-BCBF-94ECD0CD4B73 - 05C01A52-1734-41A7-BCBF-94ECD0CD4B73</string>
 			<key>to</key>
+			<string>18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA - 18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA</string>
+		</dict>
+		<key>5965E277-6874-4C3E-BD57-2C3848293632</key>
+		<dict>
+			<key>from</key>
 			<string>AA91734D-31EA-4282-B15D-7C7BAAFB293D - AA91734D-31EA-4282-B15D-7C7BAAFB293D</string>
-		</dict>
-		<key>7AE0A124-04E4-4B53-AAD0-ADB6CC9EE941</key>
-		<dict>
-			<key>from</key>
-			<string>18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA - 18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA</string>
 			<key>to</key>
-			<string>4351A075-B5C0-4455-B3BD-26E8D91B0CF9 - 4351A075-B5C0-4455-B3BD-26E8D91B0CF9</string>
-		</dict>
-		<key>9BE3A668-65FA-48BB-A878-4B54D90795EE</key>
-		<dict>
-			<key>from</key>
 			<string>1720E931-C6A4-475C-9B3E-583048E298F8 - 1720E931-C6A4-475C-9B3E-583048E298F8</string>
-			<key>to</key>
-			<string>05C01A52-1734-41A7-BCBF-94ECD0CD4B73 - 05C01A52-1734-41A7-BCBF-94ECD0CD4B73</string>
 		</dict>
-		<key>BE7DC331-966A-4A29-A07B-2698AAED5948</key>
-		<dict>
-			<key>from</key>
-			<string>05C01A52-1734-41A7-BCBF-94ECD0CD4B73 - 05C01A52-1734-41A7-BCBF-94ECD0CD4B73</string>
-			<key>to</key>
-			<string>18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA - 18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA</string>
-		</dict>
-		<key>CB2CD68F-9CBB-4B72-8650-76B2D321CCC8</key>
+		<key>B2CBF541-81E1-484D-916F-A7A76F5DC177</key>
 		<dict>
 			<key>from</key>
 			<string>55F4B77F-AA87-458B-A457-8422E8688C06 - 55F4B77F-AA87-458B-A457-8422E8688C06</string>
 			<key>to</key>
 			<string>5FB32DD8-40CE-49CC-B4EB-492C293FEFDB - 5FB32DD8-40CE-49CC-B4EB-492C293FEFDB</string>
 		</dict>
-		<key>DDDE667B-C1D6-43A1-BBC2-EA1474A2F6B9</key>
+		<key>CDE6B182-605F-44E0-8F2B-0BC5F0968F4D</key>
 		<dict>
 			<key>from</key>
-			<string>AA91734D-31EA-4282-B15D-7C7BAAFB293D - AA91734D-31EA-4282-B15D-7C7BAAFB293D</string>
+			<string>18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA - 18AAB7D4-67CE-445B-8DC9-8A26B0BC16AA</string>
 			<key>to</key>
+			<string>4351A075-B5C0-4455-B3BD-26E8D91B0CF9 - 4351A075-B5C0-4455-B3BD-26E8D91B0CF9</string>
+		</dict>
+		<key>EE917E25-A7F4-4F19-8528-3BB7C21AE958</key>
+		<dict>
+			<key>from</key>
+			<string>5FB32DD8-40CE-49CC-B4EB-492C293FEFDB - 5FB32DD8-40CE-49CC-B4EB-492C293FEFDB</string>
+			<key>to</key>
+			<string>AA91734D-31EA-4282-B15D-7C7BAAFB293D - AA91734D-31EA-4282-B15D-7C7BAAFB293D</string>
+		</dict>
+		<key>F210C3B4-6D43-4F6D-AB35-681594CDFA0C</key>
+		<dict>
+			<key>from</key>
 			<string>1720E931-C6A4-475C-9B3E-583048E298F8 - 1720E931-C6A4-475C-9B3E-583048E298F8</string>
+			<key>to</key>
+			<string>05C01A52-1734-41A7-BCBF-94ECD0CD4B73 - 05C01A52-1734-41A7-BCBF-94ECD0CD4B73</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>
