@@ -2,7 +2,7 @@
 Service macOS permettant d'envoyer rapidement des fichiers via [HiberFile](https://hiberfile.com)
 
 ## Premières étapes
-Téléchargez [Partager via HiberFile](https://github.com/dorian-eydoux/HiberFile-service/releases/download/1.0.3/Partager-via-HiberFile.workflow.zip), dézippez-le puis double-cliquez sur le fichier et confirmez l'installation
+Téléchargez [Partager via HiberFile](https://github.com/dorian-eydoux/HiberFile-service/releases/latest/download/Partager-via-HiberFile.workflow.zip), dézippez-le puis double-cliquez sur le fichier et confirmez l'installation
 
 Désormais en faisant clic droit sur un fichier puis `Actions rapides > Partager via HiberFile`, le lien de téléchargement du ficher sera directement enregistré dans votre presse-papier
 
